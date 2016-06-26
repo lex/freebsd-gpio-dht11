@@ -71,11 +71,17 @@ int main(int argc, char *argv[]) {
     }
 
     if (c == 256) {
+      // reading probably failed
       break;
     }
 
     ++total;
     rawData[i] = c;
+
+    if (total == 40) {
+      // got all we need
+      break;
+    }
   }
 
   if (total != 40) {
